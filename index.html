@@ -25,9 +25,20 @@
     <title>Green Earth</title>
 
     <!-- Internal Css -->
-    <style></style>
+    <style>
+      .active {
+        background: #15803d !important;
+        color: white !important;
+        border-color: #15803d !important;
+      }
+      .inactive {
+        border: 1px solid blue;
+        color: blue;
+        background: white;
+      }
+    </style>
   </head>
-  <body>
+  <body class="bg-base-300">
     <header>
       <div class="navbar bg-[#15803D] shadow-sm">
         <div class="navbar-start">
@@ -100,6 +111,69 @@
       </section>
     </header>
     <main>
+      <!-- Tree section  -->
+      <section class="mt-24 sm:px-6 lg:px-24 min-h-screen">
+        <h1 class="text-center mb-10 text-3xl font-bold text-[#1F2937]">
+          Choose Your trees
+        </h1>
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-5 lg:gap-7">
+          <!-- Categories section  -->
+          <div
+            class="lg:sticky top-32 col-span-4 lg:col-span-1 shadow-sm max-w-sm mx-auto px-2 rounded-xl bg-white h-fit"
+          >
+            <h1 class="mb-10 pt-2 text-3xl font-bold text-[#1F2937]">
+              Categories
+            </h1>
+            <button
+              id="all-categories"
+              class="btn bg-[#15803D] rounded-full text-white w-full mb-2"
+            >
+              All Trees
+            </button>
+            <div
+              id="categories-container"
+              class="categories-container space-y-2 mb-2"
+            ></div>
+          </div>
+
+          <!-- Card -->
+          <div class="col-span-4 lg:col-span-3">
+            <div
+              id="plant-container"
+              class="grid md:grid-cols-2 xl:grid-cols-3 gap-7 h-full"
+            ></div>
+          </div>
+
+          <!-- Card Section  -->
+          <div
+            class="lg:sticky top-32 col-span-4 lg:col-span-1 shadow-sm max-w-sm mx-auto px-2 rounded-xl bg-white lg:h-fit w-full mb-10"
+          >
+            <h1 class="mb-10 text-3xl font-bold text-[#1F2937] mt-2">
+              Your Card
+            </h1>
+
+            <!-- card container  -->
+            <div id="add-card-container" class="mb-8 bg-base-300">
+              <div class="flex justify-between items-center px-6 py-2">
+                <div class="text-[#1F2937]">
+                  <h1 class="font-semibold mb-1">Mango Tree</h1>
+                  <p class="font-bold">$500 x 1</p>
+                </div>
+                <div class="">
+                  <button>X</button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex justify-between flex-wrap font-bold text-[#1F2937]"
+            >
+              <h1>Total</h1>
+              <span>0</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- //About Section  -->
       <section class="lg:w-[1090px] my-24 mx-auto hidden">
         <h1 class="text-center mb-10 text-3xl font-bold text-[#1F2937]">
@@ -107,7 +181,7 @@
         </h1>
         <div class="md:flex gap-8 justify-between items-center">
           <div class="mb-10 md:mb-0">
-            <img src="./assets/about.png" alt="" class="w-full"/>
+            <img src="./assets/about.png" alt="" class="w-full" />
           </div>
           <div class="lg:w-[530px] ml-7">
             <p class="mb-7 text-base text-[#1F2937] leading-7">
@@ -173,15 +247,18 @@
 
               <label class="input rounded-md w-full" for="">
                 <select name="" id="" class="w-full border-none">
-                <option value="Number of Trees">Number of Trees</option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-              </select>
+                  <option value="Number of Trees">Number of Trees</option>
+                  <option value=""></option>
+                  <option value=""></option>
+                  <option value=""></option>
+                </select>
               </label>
 
-              
-              <button class="btn btn-warning rounded-full text-[#15803D] text-white">Login</button>
+              <button
+                class="btn btn-warning rounded-full text-[#15803D] text-white"
+              >
+                Login
+              </button>
             </fieldset>
           </div>
         </div>
@@ -198,5 +275,8 @@
         </aside>
       </footer>
     </footer>
+
+    <!-- JavaScripts -->
+    <script src="./scripts.js"></script>
   </body>
 </html>
