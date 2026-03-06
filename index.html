@@ -43,7 +43,11 @@
       <div class="navbar bg-[#15803D] shadow-sm">
         <div class="navbar-start">
           <div class="dropdown">
-            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-ghost text-white lg:hidden"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -61,7 +65,7 @@
             </div>
             <ul
               tabindex="-1"
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              class="menu menu-sm dropdown-content bg-transparent border-2 border-neutral/20 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li><a>About</a></li>
               <li><a>Gallery</a></li>
@@ -78,14 +82,12 @@
           </ul>
         </div>
         <div class="navbar-end">
-          <a class="btn btn-warning rounded-full text-[#15803D]"
-            >Plant a Tree</a
-          >
+          <a class="btn btn-warning rounded-full text-white/90">Plant a Tree</a>
         </div>
       </div>
 
       <!-- Hero section  -->
-      <section class="grid md:grid-cols-4 items-center bg-[#CFF0DC] hidden">
+      <section class="grid md:grid-cols-4 items-center bg-[#CFF0DC] hidde">
         <div class="">
           <img src="./assets/hero-leaf1.png" alt="" />
         </div>
@@ -98,7 +100,7 @@
                   Join our mission to plant 1 million trees and make the Earth
                   greener for future generations.
                 </p>
-                <button class="btn btn-warning rounded-full text-[#15803D]">
+                <button class="btn btn-warning rounded-full text-white/90">
                   Get Involved
                 </button>
               </div>
@@ -112,11 +114,13 @@
     </header>
     <main>
       <!-- Tree section  -->
-      <section class="mt-24 sm:px-6 lg:px-24 min-h-screen hidde">
+      <section class="mt-12 sm:px-6 lg:px-24 min-h-screen p-2">
         <h1 class="text-center mb-10 text-3xl font-bold text-[#1F2937]">
           Choose Your trees
         </h1>
-        <div class="grid grid-cols-1 lg:grid-cols-5 gap-5 lg:gap-7">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-5 lg:gap-7"
+        >
           <!-- Categories section  -->
           <div
             class="lg:sticky top-32 col-span-4 lg:col-span-1 shadow-sm max-w-sm mx-auto px-2 rounded-xl bg-white h-fit"
@@ -137,7 +141,7 @@
           </div>
 
           <!-- Card -->
-          <div class="col-span-4 lg:col-span-3">
+          <div class="col-span-4 lg:col-span-3 px-2 lg:px-0">
             <div
               id="plant-container"
               class="grid md:grid-cols-2 xl:grid-cols-3 gap-7 h-full"
@@ -149,31 +153,33 @@
             class="lg:sticky top-32 col-span-4 lg:col-span-1 shadow-sm max-w-sm mx-auto px-2 rounded-xl bg-base-300 lg:h-fit w-full mb-10"
           >
             <h1 class="mb-10 text-3xl font-bold text-[#1F2937] mt-2">
-              Your Card
+              Your Cart
             </h1>
-
+            <p id="no-card" class="text-sm text-gray-500 text-center">
+              No items added yet
+            </p>
             <!-- card container  -->
-            <div id="add-card-container" class="mb-8  "></div>
+            <div id="add-card-container" class="mb-8"></div>
             <div
               class="flex justify-between flex-wrap font-bold text-[#1F2937]"
             >
               <h1>Total</h1>
-              <span id="count">0</span>
+              <p>$<span id="total-price">0</span></p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- //About Section  -->
-      <section class="lg:w-[1090px] my-24 mx-auto hidden">
+      <section class="xl:w-[1090px] my-24 mx-auto p-2">
         <h1 class="text-center mb-10 text-3xl font-bold text-[#1F2937]">
           About the Campaign
         </h1>
-        <div class="md:flex gap-8 justify-between items-center">
+        <div class="md:flex gap-4 xl:gap-8 justify-between items-center">
           <div class="mb-10 md:mb-0">
             <img src="./assets/about.png" alt="" class="w-full" />
           </div>
-          <div class="lg:w-[530px] ml-7">
+          <div class="xl:w-[530px] w-full lg:ml-7">
             <p class="mb-7 text-base text-[#1F2937] leading-7">
               Green Earth is a global tree plantation initiative dedicated to
               fighting climate change. Since our start, we’ve planted over
@@ -181,17 +187,17 @@
               forests, create habitats for wildlife, and combat global warming.
             </p>
 
-            <div class="pl-4 leading-7 text-base text-[#1F2937]">
+            <ul class="pl-4 leading-7 text-base text-[#1F2937] list-disc">
               <li class="decoration-black">Restoration of natural habitats</li>
-              <li>Restoration of natural habitats</li>
-              <li>Restoration of natural habitats</li>
-            </div>
+              <li>Improvement of air quality</li>
+              <li>Support for local communities</li>
+            </ul>
           </div>
         </div>
       </section>
 
       <!-- Impact Section  -->
-      <section class="bg-[#CFF0DC] py-24 px-32 hidden">
+      <section class="bg-[#CFF0DC] py-24 px-32 p-2">
         <div class="">
           <h1 class="text-center mb-10 text-3xl font-bold text-[#1F2937] mb-10">
             Our Impact
@@ -214,14 +220,14 @@
       </section>
 
       <!-- Donation Section  -->
-      <section class="bg-[#166534] hidden">
+      <section class="bg-[#166534]">
         <div class="py-24">
-          <h1 class="text-center mb-10 text-3xl font-bold text-white mb-10">
+          <h1 class="text-center mb-10 text-3xl font-bold text-white">
             Plant a Tree Today
           </h1>
           <div class="mx-auto">
             <fieldset
-              class="fieldset bg-base-200 bg-[#15803D] rounded-xl p-10 w-[650px] mx-auto"
+              class="fieldset bg-base-200 bg-[#15803D] rounded-xl p-10 lg:w-[650px] mx-auto"
             >
               <input
                 type="text"
@@ -230,7 +236,7 @@
               />
 
               <input
-                type="password"
+                type="email"
                 class="input rounded-md w-full"
                 placeholder="Your Email Address"
               />
@@ -238,16 +244,26 @@
               <label class="input rounded-md w-full" for="">
                 <select name="" id="" class="w-full border-none">
                   <option value="Number of Trees">Number of Trees</option>
-                  <option value=""></option>
-                  <option value=""></option>
-                  <option value=""></option>
+                  <option value="">All Trees</option>
+                  <option value="">Fruit Tree</option>
+                  <option value="">Flowering Tree</option>
+                  <option value="">Gulmoha</option>
+                  <option value="">Shade Tree</option>
+                  <option value="">Known as the Forest</option>
+                  <option value="">Medicinal Tree</option>
+                  <option value="">Flowerin</option>
+                  <option value="">Ac</option>
+                  <option value="">Timber Tree</option>
+                  <option value="">Evergreen Tree</option>
+                  <option value="">Ornamental Plant</option>
+                  <option value="">Bamboo</option>
+                  <option value="">Climber</option>
+                  <option value="">Aquatic Plant</option>
                 </select>
               </label>
 
-              <button
-                class="btn btn-warning rounded-full text-[#15803D] text-white"
-              >
-                Login
+              <button class="btn btn-warning rounded-full text-white">
+                Donate Now
               </button>
             </fieldset>
           </div>
@@ -256,7 +272,7 @@
     </main>
 
     <!-- footer section  -->
-    <footer class="hidden">
+    <footer>
       <footer
         class="footer sm:footer-horizontal footer-center bg-[#14532D] text-base-content p-4"
       >
@@ -270,15 +286,3 @@
     <script src="./scripts.js"></script>
   </body>
 </html>
-
-
-<div class="flex justify-between items-center px-6 py-2 rounded-xl m-2 bg-white">
-<div class="text-[#1F2937]">
-                  <h1 class="font-semibold mb-1">${item.name}</h1>
-                  <p class="font-bold">$${item.price} X ${item.quantity}</p>
-                </div>
-                <div class="">
-                  <button onclick="removeFromCart('${item.name}')" class="btn btn-active btn-error rounded-full removeBtn">Del</button>
-                </div>
-</div>
-
