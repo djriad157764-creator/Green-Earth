@@ -38,7 +38,7 @@
       }
     </style>
   </head>
-  <body class="bg-base-300">
+  <body class="bg-yellow-50">
     <header>
       <div class="navbar bg-[#15803D] shadow-sm">
         <div class="navbar-start">
@@ -112,7 +112,7 @@
     </header>
     <main>
       <!-- Tree section  -->
-      <section class="mt-24 sm:px-6 lg:px-24 min-h-screen">
+      <section class="mt-24 sm:px-6 lg:px-24 min-h-screen hidde">
         <h1 class="text-center mb-10 text-3xl font-bold text-[#1F2937]">
           Choose Your trees
         </h1>
@@ -146,23 +146,19 @@
 
           <!-- Card Section  -->
           <div
-            class="lg:sticky top-32 col-span-4 lg:col-span-1 shadow-sm max-w-sm mx-auto px-2 rounded-xl bg-white lg:h-fit w-full mb-10"
+            class="lg:sticky top-32 col-span-4 lg:col-span-1 shadow-sm max-w-sm mx-auto px-2 rounded-xl bg-base-300 lg:h-fit w-full mb-10"
           >
             <h1 class="mb-10 text-3xl font-bold text-[#1F2937] mt-2">
               Your Card
             </h1>
 
             <!-- card container  -->
-            <div id="add-card-container" class="mb-8 bg-base-300">
-
-              
-
-            </div>
+            <div id="add-card-container" class="mb-8  "></div>
             <div
               class="flex justify-between flex-wrap font-bold text-[#1F2937]"
             >
               <h1>Total</h1>
-              <span>0</span>
+              <span id="count">0</span>
             </div>
           </div>
         </div>
@@ -274,3 +270,15 @@
     <script src="./scripts.js"></script>
   </body>
 </html>
+
+
+<div class="flex justify-between items-center px-6 py-2 rounded-xl m-2 bg-white">
+<div class="text-[#1F2937]">
+                  <h1 class="font-semibold mb-1">${item.name}</h1>
+                  <p class="font-bold">$${item.price} X ${item.quantity}</p>
+                </div>
+                <div class="">
+                  <button onclick="removeFromCart('${item.name}')" class="btn btn-active btn-error rounded-full removeBtn">Del</button>
+                </div>
+</div>
+

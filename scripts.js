@@ -45,7 +45,7 @@ const displayPlants = (plants) => {
     card.innerHTML = `
      <div class="card p-4 h-fit rounded-xl bg-white shadow-sm">
                 <div class="mb-3 rounded-sm">
-                  <img src="${plant.image}" alt="" class="w-full object-cover h-30 rounded-md">
+                  <img src="${plant.image}" alt="${plant.name}" class="w-full object-cover h-32 rounded-md">
 
                 </div>
                 <h1 class="font-semibold text-[#1F2937] mb-2">${plant.name}</h1>
@@ -65,26 +65,19 @@ const displayPlants = (plants) => {
                 </div>
               </div>
     `;
-
     const addCard = card.querySelector(".add-to-card");
     addCard.addEventListener("click", () => {
       addCardFunction(plant.price, plant.name);
     });
-
     plantsContainer.appendChild(card);
   });
 };
 
 const addCardFunction = (price, name) => {
-  const cardAdd = {
-    price,
-    name,
-    quantity: 1,
-  };
-
+  
   const existingItem = buy.find((item) => item.name === name);
   if (existingItem) {
-    ((existingItem.quantity += 1), existingItem.price * existingItem.quantity);
+    existingItem.quantity += 1;
   } else {
     buy.push({ price, name, quantity: 1 });
   }
@@ -94,19 +87,37 @@ const addCardFunction = (price, name) => {
 const updateDisplay = () => {
   const cardContainer = document.getElementById("add-card-container");
   cardContainer.innerHTML = "";
+  let total = 0;
+
   buy.forEach((item) => {
+    total += item.price * item.quantity;
+
     const card = document.createElement("div");
-    card.className = "flex justify-between items-center px-6 py-2";
+    card.className = "flex justify-between items-center px-6 py-2 rounded-xl m-2 bg-white";
     card.innerHTML = `
                 <div class="text-[#1F2937]">
                   <h1 class="font-semibold mb-1">${item.name}</h1>
                   <p class="font-bold">$${item.price} X ${item.quantity}</p>
                 </div>
                 <div class="">
-                  <button>X</button>
+                  <button onclick="removeFromCart('${item.name}')" class="btn btn-active btn-error rounded-full removeBtn">Del</button>
                 </div>`;
     cardContainer.appendChild(card);
   });
+  document.getElementById("count").innerText = total;
+};
+
+const removeFromCart = (name) => {
+  const index = buy.findIndex((item) => item.name === name);
+  if (index !== -1) {
+    if (buy[index].quantity > 1) {
+      buy[index].quantity -= 1;
+    } else {
+      buy.splice(index, 1);
+    }
+  }
+
+  updateDisplay();
 };
 
 // display Categories
@@ -125,6 +136,7 @@ const displayCategories = (categories) => {
   });
 };
 
+// Remove all btn style
 const removeBtnStyle = () => {
   const allBtn = document.querySelectorAll(".categoryBtn");
   document.getElementById("all-categories").classList.remove("bg-[#15803D]");
@@ -133,7 +145,6 @@ const removeBtnStyle = () => {
   document.getElementById("all-categories").classList.add("inactive");
 };
 
-// Remove all btn style
 const loadCard = async (id, clickedBtn) => {
   const url = `https://openapi.programming-hero.com/api/category/${id}`;
   removeBtnStyle();
