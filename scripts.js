@@ -1,3 +1,6 @@
+// empty array >
+let buy = [];
+
 // Get 🌴 All Categories
 const allCategories = async () => {
   // show loading spinner
@@ -42,7 +45,7 @@ const displayPlants = (plants) => {
     card.innerHTML = `
      <div class="card p-4 h-fit rounded-xl bg-white shadow-sm">
                 <div class="mb-3 rounded-sm">
-                  <img src="${plant.image}" alt="" class="w-full object-cover h-40 rounded-md">
+                  <img src="${plant.image}" alt="" class="w-full object-cover h-30 rounded-md">
 
                 </div>
                 <h1 class="font-semibold text-[#1F2937] mb-2">${plant.name}</h1>
@@ -54,15 +57,55 @@ const displayPlants = (plants) => {
                   <p>$${plant.price}</p>
                 </div>
                 <div class="">
-                  <button
-                    class="btn bg-[#15803D] rounded-full text-white text-white w-full"
+                  <button 
+                    class="add-to-card btn bg-[#15803D] rounded-full text-white text-white w-full"
                   >
-                   Add Card
+                   Add to Card
                   </button>
                 </div>
               </div>
     `;
+
+    const addCard = card.querySelector(".add-to-card");
+    addCard.addEventListener("click", () => {
+      addCardFunction(plant.price, plant.name);
+    });
+
     plantsContainer.appendChild(card);
+  });
+};
+
+const addCardFunction = (price, name) => {
+  const cardAdd = {
+    price,
+    name,
+    quantity: 1,
+  };
+
+  const existingItem = buy.find((item) => item.name === name);
+  if (existingItem) {
+    ((existingItem.quantity += 1), existingItem.price * existingItem.quantity);
+  } else {
+    buy.push({ price, name, quantity: 1 });
+  }
+  updateDisplay();
+};
+
+const updateDisplay = () => {
+  const cardContainer = document.getElementById("add-card-container");
+  cardContainer.innerHTML = "";
+  buy.forEach((item) => {
+    const card = document.createElement("div");
+    card.className = "flex justify-between items-center px-6 py-2";
+    card.innerHTML = `
+                <div class="text-[#1F2937]">
+                  <h1 class="font-semibold mb-1">${item.name}</h1>
+                  <p class="font-bold">$${item.price} X ${item.quantity}</p>
+                </div>
+                <div class="">
+                  <button>X</button>
+                </div>`;
+    cardContainer.appendChild(card);
   });
 };
 
