@@ -11,6 +11,7 @@ const allCategories = async () => {
     const res = await fetch(url);
     const data = await res.json();
     displayCategories(data.categories);
+    console.log(data.categories);
   } catch (error) {
     plantsContainer.innerHTML =
       "<p class='text-red-500 text-3xl flex justify-center items-center col-span-full'>Failed to load categories</p>";
@@ -91,13 +92,13 @@ const updateDisplay = () => {
   const cardContainer = document.getElementById("add-card-container");
   cardContainer.innerHTML = "";
   let total = 0;
-const hide = document.getElementById("no-card")
+  const hide = document.getElementById("no-card");
   if (cart.length === 0) {
-   hide.classList.remove("hidden");
+    hide.classList.remove("hidden");
     document.getElementById("total-price").innerText = 0;
     return;
-  }else{
-    hide.classList.add("hidden")
+  } else {
+    hide.classList.add("hidden");
   }
   cart.forEach((item) => {
     total += item.price * item.quantity;
@@ -138,9 +139,9 @@ const displayCategories = (categories) => {
   categoryContainer.innerHTML = "";
 
   categories.forEach((category) => {
+    console.log(category);
     const btn = document.createElement("button");
-    btn.className =
-      "btn rounded-full w-full mb-2 categoryBtn inactive";
+    btn.className = "btn rounded-full w-full mb-2 categoryBtn inactive";
     btn.innerHTML = `
      ${category.category_name}`;
     btn.onclick = () => loadCard(category.id, btn);

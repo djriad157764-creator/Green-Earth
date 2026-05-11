@@ -1,5 +1,6 @@
 {
   "powermode.enabled": true,
   "powermode.combo.counterEnabled": "hide",
-  "powermode.combo.counterSize": 0
+  "powermode.combo.counterSize": 0,
+  "liveServer.settings.port": 5501
 }
